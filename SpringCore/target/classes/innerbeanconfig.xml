@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           https://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean class="org.example.innerbeans.Employee" name="employee" p:id="101" scope="prototype">
+<!-- When scope is not mentioned it goes with singleton creates same object everytime we call it check with
+       .hashcode() method we will get the same code. But when changed to prototype we will get diff
+       hashcode as it creates different objects everytime we call-->
+        <property name="address">
+            <bean class="org.example.innerbeans.Address" p:hno="700" p:street="Edho" p:city="mycity"/>
+        </property>
+    </bean>
+</beans>
