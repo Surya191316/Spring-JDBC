@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           https://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           https://www.springframework.org/schema/context/spring-context.xsd
+           http://www.springframework.org/schema/util
+           https://www.springframework.org/schema/util/spring-util.xsd">
+    <util:list list-class="java.util.LinkedList" id="PN">
+        <value>Macbook</value>
+        <value>Iphone</value>
+    </util:list>
+<!--    <bean class="org.surya.Standalone.ProductList" name="productList">-->
+<!--        <property name="productNames">-->
+<!--            <list>-->
+<!--                <value>Macbook</value>-->
+<!--                <value>Iphone</value>-->
+<!--            </list>-->
+<!--        </property>-->
+<!--    </bean>-->
+<!--Above we created a standalone bean and we injected into the bean that we have below-->
+    <bean class="org.surya.Standalone.ProductList" name="productList">
+        <property name="productNames">
+            <ref bean="PN"/>
+        </property>
+    </bean>
+</beans>
